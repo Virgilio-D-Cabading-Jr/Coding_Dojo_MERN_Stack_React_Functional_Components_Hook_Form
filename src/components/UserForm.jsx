@@ -41,6 +41,8 @@ const UserForm = (props) => {
         setEmail(e.target.value);
         if ((e.target.value.length > 0) && (e.target.value.length < 3)) {
             setEmailError("Email must be at least 3 character or longer!");
+        } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value)) && (e.target.value.length > 0)) {
+            setEmailError("Invalid email format!");
         } else {
             setEmailError('');
         }
